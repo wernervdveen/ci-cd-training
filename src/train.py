@@ -71,7 +71,9 @@ def train(config: Config):
     """Function to train the model"""
 
     X_train, X_test, y_train, y_test, = [
-        load_processed_data(f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/{df}.csv")
+        load_processed_data(
+            f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/{df}"
+            f".csv")
         for df in ["X_train", "X_test", "y_train", "y_test"]
     ]
 
@@ -98,7 +100,8 @@ def train(config: Config):
     best_model = optimize(objective, space)
 
     # Save model
-    joblib.dump(best_model, f"{config.PROJECT_ROOT}/{config.MODEL_PATH}/model.pickle")
+    joblib.dump(best_model,
+                f"{config.PROJECT_ROOT}/{config.MODEL_PATH}/model.pickle")
 
 
 if __name__ == "__main__":

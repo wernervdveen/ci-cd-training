@@ -14,10 +14,13 @@ def predict(model: XGBClassifier, X_test: pd.DataFrame):
 def evaluate(config: Config):
 
     # Load data and model
-    X_test = load_processed_data(f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/X_test.csv")
-    y_test = load_processed_data(f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/y_test.csv")
+    X_test = load_processed_data(
+        f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/X_test.csv")
+    y_test = load_processed_data(
+        f"{config.PROJECT_ROOT}/{config.DATA_PROCESSED_PATH}/y_test.csv")
 
-    model = load_model(f"{config.PROJECT_ROOT}/{config.MODEL_PATH}/model.pickle")
+    model = load_model(
+        f"{config.PROJECT_ROOT}/{config.MODEL_PATH}/model.pickle")
 
     # Get predictions
     prediction = predict(model, X_test)
