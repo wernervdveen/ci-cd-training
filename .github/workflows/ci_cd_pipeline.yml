@@ -22,6 +22,10 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+
+      - name: Install linter
+        run: pip install flake8
+
       - name: Run Linting
         run: flake8 src
 
@@ -38,6 +42,7 @@ jobs:
       - name: Test processed code and ML model
         run: |
           make test
+
       - name: Build and run app locally
         run: |
           docker build -t ci-cd-test . 
