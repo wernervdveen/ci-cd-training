@@ -37,7 +37,7 @@ def write_predictions(data: dict):
         data_json = json.dumps(data)
 
         prediction = requests.post(
-            "https://employee-predict-vantage-{YOUR_NAME}.herokuapp.com/predict",
+            "https://employee-predict-vantage-werne.herokuapp.com/predict",
             headers={"content-type": "application/json"},
             data=data_json,
         ).text[0]
