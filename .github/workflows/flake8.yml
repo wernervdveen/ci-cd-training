@@ -16,7 +16,7 @@ jobs:
       - name: flake8 Lint
         uses: py-actions/flake8@v2
         with:
-          ignore: "F401"
+          ignore: "F401, BLK100"
           exclude: "src/ignoreme.py"
           max-line-length: "100"
           path: "src"

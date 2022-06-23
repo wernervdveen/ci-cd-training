@@ -7,7 +7,6 @@ from src.helpers import load_processed_data, load_model
 warnings.filterwarnings(action="ignore")
 
 
-
 def predict(model: XGBClassifier, X_test: pd.DataFrame):
     return model.predict(X_test)
 
