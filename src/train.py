@@ -25,10 +25,7 @@ def get_objective(
 ):
 
     model = XGBClassifier(
-        use_label_encoder=False,
-        objective="binary:logistic",
-        n_estimators=space["n_estimators"],
-        max_depth=int(space["max_depth"]),
+        use_label_encoder=False, objective="binary:logistic", n_estimators=space["n_estimators"], max_depth=int(space["max_depth"]),
         gamma=space["gamma"],
         reg_alpha=int(space["reg_alpha"]),
         min_child_weight=int(space["min_child_weight"]),
