@@ -1,13 +1,11 @@
 import warnings
-
-warnings.filterwarnings(action="ignore")
-
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
 from xgboost import XGBClassifier
-
 from config import Config
 from src.helpers import load_processed_data, load_model
+warnings.filterwarnings(action="ignore")
+
 
 
 def predict(model: XGBClassifier, X_test: pd.DataFrame):

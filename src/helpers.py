@@ -13,3 +13,4 @@ def load_processed_data(processed_path: str):
 
 def load_model(model_path: str):
     return joblib.load(model_path)
+
