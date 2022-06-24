@@ -58,8 +58,8 @@ jobs:
           docker ps -q --filter ancestor="ci-cd-test" | xargs -r docker stop
 
       - name: Build and run app on Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: ${{secrets.HEROKU_DEPLOY}}
+          heroku_api_key: ${{secrets.HEROKU_DEPLOYMENT}}
           heroku_app_name: "employee-predict-vantage-werne"
           heroku_email: "werner.van.der.veen@vantage-ai.com"
