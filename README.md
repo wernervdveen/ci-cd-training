@@ -33,3 +33,8 @@ What I also did after being able to deploy to localhost was deploying to remote 
 1. Pushing to Heroku (`git push heroku main`)
 2. Generating the Heroku key (on Heroku profile settings, then "reveal API key")
 3. Put this key in repo settings -> actions -> New secret
+
+
+-----
+
+Note also that it's possible and advisable to deploy to run a dockerfile locally when pushing to a feature or dev branch, and to Heroku if pushing on an acceptance or master branch.
