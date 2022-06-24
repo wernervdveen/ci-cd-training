@@ -29,11 +29,18 @@ jobs:
       - name: Run Linting
         run: flake8 src
 
-      - name: Cache
+      - name: Cache  # https://github.com/actions/cache/tree/v2
+        # Allows caching dependencies and build outputs to improve workflow
+        # execution time.
         uses: actions/cache@v2
         with:
+          # List of files, directories, and wildcard patterns to cache and
+          # restore
           path: ~/.cache/pip
+          # An explicit key for restoring and saving the cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          #  An ordered list of keys to use for restoring the cache if no cache
+          # hit occurred for key
           restore-keys: ${{ runner.os }}-pip-
 
       - name: Install packages

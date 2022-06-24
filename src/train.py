@@ -35,17 +35,17 @@ def get_objective(
         colsample_bytree=int(space["colsample_bytree"]),
     )
 
-    evaluation = [(X_train, y_train), (X_test, y_test)]
+    evaluation = [(X_train, 1 - y_train), (X_test, 1 - y_test)]
 
     model.fit(
         X_train,
-        y_train,
+        1 - y_train,
         eval_set=evaluation,
         eval_metric="auc",
         early_stopping_rounds=10,
     )
     prediction = model.predict(X_test.values)
-    accuracy = accuracy_score(y_test, prediction)
+    accuracy = accuracy_score(1 - y_test, prediction)
     print("SCORE:", accuracy)
     return {"loss": -accuracy, "status": STATUS_OK, "model": model}
 
@@ -93,7 +93,7 @@ def train(config: Config):
         "seed": 0,
     }
     objective = partial(
-        get_objective, X_train, y_train, X_test, y_test
+        get_objective, X_train, 1 - y_train, X_test, 1 - y_test
     )
 
     # Find best model
