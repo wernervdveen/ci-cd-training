@@ -26,3 +26,10 @@ Make sure you push the container to your own app name. Change this in `app/app.p
 Finally, you can check on Heroku logs if the container is deployed successfully and check if you can predict by running:
 ``streamlit run /app/app.py``
 
+
+-----
+
+What I also did after being able to deploy to localhost was deploying to remote Heroku. Steps:
+1. Pushing to Heroku (`git push heroku main`)
+2. Generating the Heroku key (on Heroku profile settings, then "reveal API key")
+3. Put this key in repo settings -> actions -> New secret
